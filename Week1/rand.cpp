@@ -19,12 +19,13 @@ int main(){
     while(counter++ < 10){
         cout << (rand() % 10) + 1 << endl;
     }
-    do{
+   
         //guess the number game
         //the computer picks a random number between 1/10 (inclusive)
         int theNumber = (rand() % 10) + 1;
         //the computer ask the player to get the number
         int guess = -1;
+     do{    
         // the payer guessess
         cin >> guess;
         //the computer evalulates whether the guess is..

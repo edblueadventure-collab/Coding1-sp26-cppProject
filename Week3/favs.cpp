@@ -53,6 +53,22 @@ int main() {
         }//end of edit
 
         else if(input == "remove") {
+            cout << "Which game would you like to remove: ";
+            string game;
+            getline(cin, game);
+
+            auto iter = find(playerGames.begin(), playerGames.end(), game);
+            if(iter != playerGames.end()){
+
+                playerGames.erase(iter);
+                
+                cout << "Game has been removed.\n";
+
+            }
+            else {
+                "Game can't be found.\n";
+            }
+
             
         }
 

@@ -75,15 +75,20 @@ public:
         else {
             charge = givenCharge;
         }
-        string getName(){
-            return name;
-        }
-        int getCharge(){
-            return charge;
-        }
-        int getBoredom() {
-            return boredom;
-        }
+    }
+
+    void changeCharge(int amount) {
+        setCharge(charge += amount);
+    }
+
+    string getName(){
+        return name;
+    }
+    int getCharge(){
+        return charge;
+    }
+    int getBoredom() {
+        return boredom;
     }
 };  //don't forget the semi colon at the end of class definition
 
@@ -100,18 +105,18 @@ int main() {
     threepio.setName("C-3PO");
     threepio.setCharge(2);
 
-    cout << "here's artoo: " << artoo.name << ".\n";  
+    cout << "here's artoo: " << artoo.getName() << ".\n";  
 
-    cout << artoo.name << " notices that " << threepio.name;
+    cout << artoo.getName() << " notices that " << threepio.getName();
     cout << " doesn't have much battery left. Lets fix that!\n";
 
-    while(threepio.charge < 15) {
-        artoo.charge -=1;
-        threepio.charge += 1;
+    while(threepio.getCharge() < 15) {
+        artoo.changeCharge(-1);
+        threepio.changeCharge(1);
     }
 
-    cout << " threepio's charge is now " << threepio.charge << ".\n";
-    cout << " artoo's charge is now " << artoo.charge << ".\n";
+    cout << " threepio's charge is now " << threepio.getCharage() << ".\n";
+    cout << " artoo's charge is now " << artoo.getCharge() << ".\n";
 
     artoo.status();
     threepio.status();

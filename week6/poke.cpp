@@ -14,26 +14,77 @@ using namespace std;
 //create a class of variables titled poke
 
 vector<string> pokeNames = {"Charmander", "Squritle", "Bulbasaur", "Pikachu", "Oshawott"};
+//craete a class of variables
 class poke {
-public:
+private:
+    // name
     string name;
+    // health
     int health;
+    // damage
     int damage;
+    // hunger
     int hunger;
+    // is it alive
     bool alive;
 
-    poke(){
-        name = pokeNames[rand() % pokeNames.size()];
-        health = rand() % 5 + 5;
-        damage = rand() % 6 + 6;
+public:
+    poke(string givenName, int givenHealth, int givenDamage) {
+        name = givenName;
+        health = givenHealth;
+        damage = givenDamage;
+        hunger = 0;
+        alive = true;
     }
+
+    void setName(string givenName) {
+        name = givenName;
+    }
+    string getName(){
+        return name;
+    }
+
+    void setHealth(int givenHealth) {
+        health = givenHealth;
+    }
+    int getHealth() {
+        return health;
+    }
+
+    void setDamage(int givenDamage) {
+        damage = givenDamage;
+    }
+    int getDamage() {
+        return damage;
+    }
+
+    void setHunger(int givenHunger) {
+        hunger = givenHunger;
+    }
+    int getHunger() {
+        return hunger;
+    }
+
+    void setAlive(bool givenAlive) {
+        alive = givenAlive;
+    }
+    bool getAlive() {
+        return alive;
+    }
+
+    void feed() {
+        hunger -= 1;
+        cout << "NOM NOM NOM!\n";
+    }
+
+    void listen() {
+        cout << "Name: " << name << "\n";
+        cout << "Health: " << health << "\n";
+        cout << "Damage: " << damage << "\n";
+        cout << "Hunger: " << hunger << "\n";
+    }
+    
 };
-//for class variable.. 
-// name
-// health
-// damage
-// hunger
-// is it alive
 
 
 
@@ -59,6 +110,7 @@ public:
 //get alive variable
 
 int main() {
+    poke myPoke("Charmander", 20, 5);
     string input;
 
     while(true) {
@@ -69,7 +121,7 @@ int main() {
         //create a 'feed' function
             
         if(input == "feed") {
-            cout << "NOM NOM NOM!\n";
+            myPoke.feed();
             //if you feed, it lowers the number
             //then mention that the critter ate
         }
